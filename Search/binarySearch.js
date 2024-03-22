@@ -19,7 +19,7 @@ function binarySearch(target){
 }
   
 
-console.log(binarySearch(10))
+console.log(binarySearch(-5))
 console.log(binarySearch(6))
 console.log(binarySearch(20))
 

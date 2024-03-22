@@ -18,11 +18,10 @@ function search(target,leftIndex,rightIndex){
     if(arr[midIndex]<target){
         return search(target,midIndex+1,rightIndex)
     }else{
-        return search(target,rightIndex,midIndex-1)
+        return search(target,leftIndex,midIndex-1)
     }
-    return -1
 }
 
-console.log(recursiveBinarySearch(10))
+console.log(recursiveBinarySearch(2))
 console.log(recursiveBinarySearch(6))
 console.log(recursiveBinarySearch(20))
