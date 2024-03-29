@@ -69,7 +69,7 @@ class LinkedListStack{
     }
 
     peek(){
-        return this.list.this.head.value
+        return this.list.head.value
     }
 
     isEmpty(){
@@ -91,9 +91,9 @@ const stack=new LinkedListStack()
 stack.push(10)
 stack.push(20)
 stack.push(30)
-stack.isEmpty()
-stack.getSize()
-stack.peek()
+console.log(stack.isEmpty())
+console.log(stack.getSize())
+console.log(stack.peek())
 stack.print()
 stack.pop()
 stack.print()
