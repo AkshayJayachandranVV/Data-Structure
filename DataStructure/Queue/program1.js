@@ -1,7 +1,7 @@
 class Node{
     constructor(value){
         this.value=value
-        this.size=null
+        this.next=null
     }
 }
 
@@ -19,14 +19,17 @@ class LinkedList{
         return this.size
     }
 
-    prepend(value){
+    append(value){
         const node=new Node(value)
         if(this.isEmpty()){
             this.head=node
             this.size++
         }else{
-            node.next=this.head
-            this.head=node
+            let curr=this.head
+            while(curr.next){
+                curr=curr.next
+            }
+            curr.next=node
             this.size++
         }
     }
@@ -34,10 +37,9 @@ class LinkedList{
     removeFront(){
         if(this.isEmpty()){
             return "List is Empty"
-        }else{
-            this.head=this.head.next
-            this.size--
         }
+        this.head=this.head.next
+        this.size--
     }
 
     print(){
@@ -55,22 +57,11 @@ class LinkedList{
     }
 }
 
-class LinkedListStack{
+class LinkedListQueue{
     constructor(){
         this.list=new LinkedList()
     }
 
-    push(value){
-        this.list.prepend(value)
-    }
-
-    pop(){
-       this.list.removeFront()
-    }
-
-    peek(){
-        return this.list.head.value
-    }
 
     isEmpty(){
         return this.list.isEmpty()
@@ -80,21 +71,27 @@ class LinkedListStack{
         return this.list.getSize()
     }
 
+    peek(){
+        return this.list.head.value
+    }
+
+    enQueue(value){
+        this.list.append(value)
+    }
+
+    deQueue(){
+        this.list.removeFront()
+    }
+
     print(){
         this.list.print()
     }
-
 }
 
-
-const stack=new LinkedListStack()
-stack.push(10)
-stack.push(20)
-stack.push(30)
-console.log(stack.isEmpty())
-console.log(stack.getSize())
-console.log(stack.peek())
-stack.print()
-stack.pop()
-stack.print()
-
+const queue=new LinkedListQueue()
+queue.enQueue(10)
+queue.enQueue(11)
+queue.enQueue(12)
+queue.print()
+queue.deQueue()
+queue.print()
