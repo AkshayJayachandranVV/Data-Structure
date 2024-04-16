@@ -21,7 +21,7 @@ function merge(leftArr,rightArr){
     return [...sortedArray,...leftArr,...rightArr]
 }
 
-let arr=[3,4,-2,6,8,1,5]
+let arr=[3,4,-2,6,8,1,5]    
 console.log(mergeSort(arr))
 
 
